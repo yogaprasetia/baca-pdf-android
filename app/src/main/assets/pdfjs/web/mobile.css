@@ -1,0 +1,43 @@
+/* Baca PDF — tampilan mobile di atas PDF.js viewer. Bar & menu dibuat native (Kotlin). */
+:root { --app-bg: #2b2f36; }
+html, body { background: var(--app-bg) !important; overscroll-behavior: none; -webkit-tap-highlight-color: transparent; }
+#toolbarContainer, .toolbar, #sidebarContainer, #viewsManager, #findbar, #secondaryToolbar, #editorModeButtons,
+#loadingBar, #editorUndoBar, .doorHanger.findbar, #toolbarSidebar { display: none !important; }
+#mainContainer { min-width: 0 !important; }
+#outerContainer #viewerContainer, #viewerContainer { inset: 0 !important; top: 0 !important; }
+#viewerContainer { padding-top: var(--top-pad, 0px); padding-bottom: var(--bottom-pad, 0px); scrollbar-width: thin; }
+.pdfViewer .page { box-shadow: 0 1px 6px rgba(0,0,0,.35); border: none !important; margin: 6px auto !important; }
+.pdfViewer.removePageBorders .page { margin: 6px auto !important; }
+.pdfViewer .page .loadingIcon::after { display: none; }
+
+/* seleksi teks lebih jelas */
+.textLayer ::selection { background: rgba(0, 120, 255, .35) !important; }
+
+/* toolbar editor (hapus/warna) lebih besar untuk jari */
+.editToolbar { transform: scale(1.35); transform-origin: top right; }
+.editToolbar button { min-width: 32px; min-height: 32px; }
+.colorPicker .swatch { width: 24px !important; height: 24px !important; }
+
+/* ---- tema ---- */
+[data-theme="night"] { --app-bg: #000; }
+[data-theme="night"] .pdfViewer .page { background: #fff; }
+[data-theme="night"] .pdfViewer .page .canvasWrapper > canvas { filter: invert(.92) hue-rotate(180deg) contrast(.95); }
+[data-theme="night"] .pdfViewer .page .canvasWrapper svg.highlight { mix-blend-mode: normal !important; opacity: .42 !important; }
+[data-theme="night"] .pdfViewer .page { box-shadow: none; }
+[data-theme="sepia"] { --app-bg: #3a3328; }
+[data-theme="sepia"] .pdfViewer .page .canvasWrapper > canvas { filter: sepia(.55) brightness(.97) contrast(.95); }
+[data-theme="gray"] .pdfViewer .page .canvasWrapper > canvas { filter: grayscale(1) contrast(1.05); }
+
+/* dialog kata sandi dsb. agar pas layar HP */
+dialog { max-width: 92vw !important; }
+#passwordDialog input { font-size: 18px; width: 100%; }
+
+/* tanpa garis fokus browser */
+#viewerContainer *:focus, #viewerContainer *:focus-visible, .pdfViewer .page:focus { outline: none !important; }
+
+/* ---- mode slide ---- */
+.slideMode #viewerContainer { padding-top: 0 !important; padding-bottom: 0 !important; overscroll-behavior: contain; }
+.slideMode .pdfViewer { min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; will-change: transform; }
+.slideMode .pdfViewer .page, .slideMode .pdfViewer.removePageBorders .page { margin: 0 auto !important; box-shadow: 0 0 14px rgba(0,0,0,.55); }
+.slideMode .pdfViewer .spread { display: flex; justify-content: center; }
+.slideMode .pdfViewer .spread .page { margin: 0 2px !important; }

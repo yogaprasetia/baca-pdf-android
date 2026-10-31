@@ -1,0 +1,21 @@
+<resources>
+  <style name="Theme.BacaPdf" parent="Theme.Material3.Dark.NoActionBar">
+    <item name="colorPrimary">@color/accent</item>
+    <item name="colorOnPrimary">#241A00</item>
+    <item name="colorPrimaryContainer">@color/accentDark</item>
+    <item name="colorOnPrimaryContainer">#FFE7A8</item>
+    <item name="colorSecondary">@color/accent</item>
+    <item name="colorSurface">@color/surface</item>
+    <item name="colorSurfaceContainer">@color/surface</item>
+    <item name="colorSurfaceContainerHigh">@color/surface2</item>
+    <item name="android:colorBackground">@color/bg</item>
+    <item name="android:windowBackground">@color/bg</item>
+    <item name="android:statusBarColor">@color/bg</item>
+    <item name="android:navigationBarColor">@color/bg</item>
+  </style>
+  <style name="Theme.BacaPdf.Reader">
+    <item name="android:windowBackground">#2B2F36</item>
+    <item name="android:statusBarColor">#E61B1F24</item>
+    <item name="android:navigationBarColor">#E61B1F24</item>
+  </style>
+</resources>
